@@ -1,12 +1,10 @@
-// next.config.js
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  output: 'standalone',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // For Vercel deployments (remove if using static export)
+  output: process.env.VERCEL ? 'standalone' : undefined,
+  
   // Essential production settings
   compress: true,
-  productionBrowserSourceMaps: false, // Disable for smaller builds
-  optimizeFonts: true,
   reactStrictMode: true,
   
   // Image optimization (if using next/image)
@@ -17,8 +15,9 @@ const nextConfig: NextConfig = {
   
   // Enable proper source map generation
   experimental: {
-    outputFileTracing: true,
-  },
+    // outputFileTracing is now automatic in newer Next.js versions
+    // Remove if causing errors
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;

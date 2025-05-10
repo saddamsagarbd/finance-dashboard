@@ -6,14 +6,5 @@
             "use": "@vercel/next"
         }
     ],
-    "routes": [
-        {
-            "src": "/api/.*",
-            "dest": "/api"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/$1"
-        }
-    ]
+    "buildCommand": "npm run build"
 }
